@@ -1,0 +1,114 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "HeapFlow",
+	"patterns": [
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#numbers"
+		},
+		{
+			"include": "#comments"
+		}
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [
+				{
+					"name": "keyword.control.heapflow",
+					"match": "\\b(equ|pt|ptf|lpt|lptf|end|if|jmp|while|return|int|del|delf|break|continue|in|out|args|set|exec)\\b"
+				},
+				{
+					"match": "(<<|>>|~|\\^)",
+					"name": "keyword.operator.bitwise.heapflow"
+				},
+				{
+					"match": "(==|!=|<=|>=|=<|=>|<|>)",
+					"name": "keyword.operator.comparison.heapflow"
+				},
+				{
+					"match": "(\\-\\-|\\+\\+)",
+					"name": "keyword.operator.increment-decrement.heapflow"
+				},
+				{
+					"match": "(\\-|\\+|\\*|\\/|%)",
+					"name": "keyword.operator.arithmetic.heapflow"
+				},
+				{
+					"match": "(!|&&|\\|\\|)",
+					"name": "keyword.operator.logical.heapflow"
+				},
+				{
+					"match": "(\\||&)",
+					"name": "keyword.operator.bitwise.heapflow"
+				}
+			]
+		},
+		"strings": {
+			"patterns": [
+				{
+					"begin": "\"",
+					"beginCaptures": {
+						"0": {
+							"name": "punctuation.definition.string.begin.heapflow"
+						}
+					},
+					"end": "\"",
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.definition.string.end.heapflow"
+						}
+					},
+					"name": "string.quoted.double.heapflow",
+					"patterns": [
+						{
+							"match": "\\\\.",
+							"name": "constant.character.escape.heapflow"
+						}
+					]
+				},
+				{
+					"begin": "'",
+					"beginCaptures": {
+						"0": {
+							"name": "punctuation.definition.string.begin.heapflow"
+						}
+					},
+					"end": "'",
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.definition.string.end.heapflow"
+						}
+					},
+					"name": "string.quoted.single.heapflow",
+					"patterns": [
+						{
+							"match": "\\\\.",
+							"name": "constant.character.escape.heapflow"
+						}
+					]
+				}
+			]
+		},
+		"numbers": {
+			"patterns": [{
+				"match": "(0x|0b)?[0-9]+",
+				"name": "constant.numeric.decimal.heapflow"
+			}]
+		},
+		"comments": {
+			"patterns": [
+				{
+					"begin": ";",
+					"end": "\\n",
+					"name": "comment.line.double-slash.heapflow"
+				}
+			]
+		}
+	},
+	"scopeName": "source.heapflow"
+}

@@ -1,0 +1,32 @@
+{
+    "comments": {
+        // symbol used for single line comment. Remove this entry if your language does not support line comments
+        "lineComment": ";"
+    },
+    // symbols used as brackets
+    "brackets": [
+        ["ptf", "end"],
+        ["lptf", "end"]
+    ],
+    // symbols that are auto closed when typing
+    "autoClosingPairs": [
+        ["{", "}"],
+        ["[", "]"],
+        ["(", ")"],
+        ["\"", "\""],
+        ["'", "'"]
+    ],
+    // symbols that can be used to surround a selection
+    "surroundingPairs": [
+        ["beginFunc", "endFunc"],
+        ["pushCtx", "popCtx"],
+        ["pushRootCtx", "popCtx"],
+        ["pushStack", "popStack"],
+        ["\"", "\""],
+        ["'", "'"]
+    ],
+    "indentationRules": {
+        "increaseIndentPattern": "^.+(ptf|lptf).+$",
+        "decreaseIndentPattern": "^\\s+end\\s+$"
+    }
+}
