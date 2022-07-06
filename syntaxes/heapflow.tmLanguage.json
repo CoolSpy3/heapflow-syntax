@@ -97,16 +97,16 @@
 		"numbers": {
 			"patterns": [
 				{
-					"match": "[0-9]+",
-					"name": "constant.numeric.decimal.heapflow"
+					"match": "0x[0-9A-Fa-f]+",
+					"name": "constant.numeric.hex.heapflow"
 				},
 				{
 					"match": "0b[01]+",
 					"name": "constant.numeric.binary.heapflow"
 				},
 				{
-					"match": "0x[0-9A-Fa-f]+",
-					"name": "constant.numeric.hex.heapflow"
+					"match": "[0-9]+",
+					"name": "constant.numeric.decimal.heapflow"
 				}
 			]
 		},
