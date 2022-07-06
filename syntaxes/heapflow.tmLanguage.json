@@ -12,7 +12,19 @@
 			"include": "#numbers"
 		},
 		{
+			"include": "#method"
+		},
+		{
 			"include": "#comments"
+		},
+		{
+			"include": "#operators"
+		},
+		{
+			"include": "#parentheses"
+		},
+		{
+			"include": "#parameters"
 		}
 	],
 	"repository": {
@@ -21,7 +33,11 @@
 				{
 					"name": "keyword.control.heapflow",
 					"match": "\\b(equ|pt|ptf|lpt|lptf|end|if|jmp|while|return|int|del|delf|break|continue|in|out|args|set|exec)\\b"
-				},
+				}
+			]
+		},
+		"operators": {
+			"patterns": [
 				{
 					"match": "(<<|>>|~|\\^)",
 					"name": "keyword.operator.bitwise.heapflow"
@@ -94,6 +110,76 @@
 				}
 			]
 		},
+		"parentheses": {
+			"patterns": [
+				{
+					"begin": "\\(",
+					"beginCaptures": {
+						"0": {
+							"name": "punctuation.bracket.round.heapflow"
+						}
+					},
+					"end": "\\)",
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.bracket.round.heapflow"
+						}
+					},
+					"patterns": [
+						{
+							"include": "#numbers"
+						},
+						{
+							"include": "#parameters"
+						}
+					]
+				},
+				{
+					"begin": "\\[",
+					"beginCaptures": {
+						"0": {
+							"name": "punctuation.bracket.square.heapflow"
+						}
+					},
+					"end": "\\]",
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.bracket.square.heapflow"
+						}
+					},
+					"patterns": [
+						{
+							"include": "#numbers"
+						},
+						{
+							"include": "#parameters"
+						}
+					]
+				},
+				{
+					"begin": "{",
+					"beginCaptures": {
+						"0": {
+							"name": "punctuation.brackets.curly.heapflow"
+						}
+					},
+					"end": "}",
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.brackets.curly.heapflow"
+						}
+					},
+					"patterns": [
+						{
+							"include": "#numbers"
+						},
+						{
+							"include": "#parameters"
+						}
+					]
+				}
+			]
+		},
 		"numbers": {
 			"patterns": [
 				{
@@ -107,6 +193,23 @@
 				{
 					"match": "[0-9]+",
 					"name": "constant.numeric.decimal.heapflow"
+				},
+				{
+					"include": "#operators"
+				},
+				{
+					"include": "#parentheses"
+				}
+			]
+		},
+		"parameters":{
+			"patterns": [
+				{
+					"match": "\\w+",
+					"name": "variable.parameter.heapflow"
+				},
+				{
+					"include": "#numbers"
 				}
 			]
 		},
@@ -115,7 +218,7 @@
 				{
 					"begin": ";",
 					"end": "\\n",
-					"name": "comment.line.double-slash.heapflow"
+					"name": "comment.line.semicolon.heapflow"
 				}
 			]
 		}
