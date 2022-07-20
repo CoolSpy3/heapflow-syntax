@@ -29,6 +29,6 @@
     ],
     "indentationRules": {
         "increaseIndentPattern": "^.+(ptf|lptf).+$",
-        "decreaseIndentPattern": "^\\s+end\\s+$"
+        "decreaseIndentPattern": "^\\s*end\\s*$"
     }
 }
